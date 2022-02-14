@@ -44,7 +44,7 @@
     background-color: #e7e7e7;
 }
 
-.user-info img{
+.user-info img, .contact img{
     max-width: 15%;
     margin-right: 10px;
     border-radius: 50%;
@@ -90,4 +90,25 @@ i{
     width: 85%;
     border: none;
     padding-left: 15px;
+}
+
+.contact {
+    display: flex;
+    margin: 15px;
+    justify-content: space-between;
+}
+
+.contact-info{
+    width: 60%;
+}
+
+.contact-info p{
+    margin-top: 5px;
+    color: grey;
+}
+
+p.date{
+    font-size: 12px;
+    width: 30%;
+    color: grey;
 }

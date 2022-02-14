@@ -42,12 +42,26 @@
                     </div>
                 </div>
 
-                <!--contnitore dell'input di ricerca contatti-->
+                <!--contenitore dell'input di ricerca contatti-->
                 <div class="search-contacts">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" placeholder="cerca o inizia una nuova chat">
                 </div>
 
+                <!--Contenitore della lista contatti-->
+                <div class="contact-list">
+
+                    <!--Creazione dinamica dei contatti tramite v-for, che estrapola i dati dall'array "contacts" in vue-->
+                    <div v-for="(contact, index) in contacts" class="contact">
+                        <img :src="contact.avatar" alt="avatar">
+                        <div class="contact-info">
+                            <h4>{{contact.name}}</h4>
+                            <p>{{contact.messages[contact.messages.length-1].text}}</p>
+                        </div>
+
+                        <p class="date">{{contact.messages[contact.messages.length-1].date}}</p>
+                    </div>
+                </div>
 
             </div>
 
