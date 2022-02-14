@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root{
+    position: relative;
+}
+
+.header-green{
+    background-color: #008c7d;
+    height: 130px;
+}
+
+.grey-background{
+    background-color: #d3d6d0;
+    height: calc(100vh - 130px);
+}
+
+
+.main-container{
+    min-width: 1000px;
+    width: 80%;
+    margin: 10px auto;
+    height: calc(100vh - 30px);
+    background-color: black;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%);
+}
