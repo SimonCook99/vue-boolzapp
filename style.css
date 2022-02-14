@@ -25,6 +25,7 @@
     margin: 10px auto;
     height: calc(100vh - 30px);
     background-color: darkred;
+    display: flex;
     position: absolute;
     bottom: 5px;
     left: 50%;
@@ -111,4 +112,79 @@ p.date{
     font-size: 12px;
     width: 30%;
     color: grey;
+    text-align: right;
+}
+
+.container-right{
+    width: 60%;
+}
+
+.avatar-info{
+    width: 100%;
+    padding: 23px;
+    display: flex;
+    align-items: center;
+    background-color: #e7e7e7;
+}
+
+.avatar-info img{
+    max-width: 10%;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.avatar-info h4{
+    width: 70%;
+}
+
+
+.messages-container{
+    background-image: url("img/mine.jpg");
+    position: relative;
+    height: calc(100% - 200px);
+}
+
+
+div.message{
+    padding: 10px;
+    width: 40%;
+    border-radius: 10px;
+    position: absolute;
+}
+
+
+
+div.message.sent{
+    background-color: #d0f8b6;
+    margin-top: 20px;
+    right: 50px;
+}
+
+div.message.received{
+    margin-top: 10px;
+    background-color: white;
+    left: 50px;
+}
+
+.messages-container p.date{
+    width: 100%;
+}
+
+
+.newMessageInput{
+    background-color: #f2ebe7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 19px;
+}
+
+.newMessageInput input{
+    border: none;
+    width: 85%;
+    padding: 20px;
+}
+
+.newMessageInput i{
+    color: #5f686b;
 }

@@ -60,9 +60,44 @@
                         </div>
 
                         <p class="date">{{contact.messages[contact.messages.length-1].date}}</p>
+                    
                     </div>
                 </div>
 
+            </div>
+
+            <!--Contenitore destro dei messaggi, e dell'input del nuovo messaggio-->
+            <div class="container-right">
+
+                <!--contenitore delle informzioni del contatto selezionato-->
+                <div class="avatar-info">
+                    <img src="img/avatar_io.jpg" alt="personal avatar">
+                    <h4>Nome Utente</h4>
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-paperclip"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+
+                <!--contenitore di tutti i messaggi-->
+                <div class="messages-container">
+                    <div class="message sent">
+                        ciao prova bla bla
+                        <p class="date">data prova posizione</p>
+                    </div>
+
+                    <div class="message received">
+                        ciao prova bla bla
+                        <p class="date">data prova posizione</p>
+                    </div>
+                </div>
+
+                <!--contenitore dell'input per inserire un nuovo messaggio-->
+                <div class="newMessageInput">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <input type="text" placeholder="Scrivi un messaggio">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
             </div>
 
         </div>
