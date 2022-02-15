@@ -3,6 +3,8 @@ const app = new Vue({
     data: {
         active: 0,
         newMessage: "",
+        contactSearch: "",
+        contattiFiltrati: this.contacts,
         contacts: [
             {
                 name: 'Michele',
@@ -87,57 +89,6 @@ const app = new Vue({
                     }
                 ],
             },
-            {
-                name: 'Luisa',
-                avatar: 'img/avatar_4.jpg',
-                visible: true,
-                messages: [
-                    {
-                        date: '10/01/2020 15:30:55',
-                        text: 'Lo sai che ha aperto una nuova pizzeria?',
-                        status: 'sent'
-                    },
-                    {
-                        date: '10/01/2020 15:50:00',
-                        text: 'Si, ma preferirei andare al cinema',
-                        status: 'received'
-                    }
-                ],
-            },
-            {
-                name: 'Luisa',
-                avatar: 'img/avatar_4.jpg',
-                visible: true,
-                messages: [
-                    {
-                        date: '10/01/2020 15:30:55',
-                        text: 'Lo sai che ha aperto una nuova pizzeria?',
-                        status: 'sent'
-                    },
-                    {
-                        date: '10/01/2020 15:50:00',
-                        text: 'Si, ma preferirei andare al cinema',
-                        status: 'received'
-                    }
-                ],
-            },
-            {
-                name: 'Luisa',
-                avatar: 'img/avatar_4.jpg',
-                visible: true,
-                messages: [
-                    {
-                        date: '10/01/2020 15:30:55',
-                        text: 'Lo sai che ha aperto una nuova pizzeria?',
-                        status: 'sent'
-                    },
-                    {
-                        date: '10/01/2020 15:50:00',
-                        text: 'Si, ma preferirei andare al cinema',
-                        status: 'received'
-                    }
-                ],
-            },
         ]    
     },
     methods:{
@@ -181,8 +132,36 @@ const app = new Vue({
                 status: "received"
             });
 
+        },
+
+        //funzione che filtra i contatti in base a ciò che l'utente inserisce nell'input di ricerca
+        filtraContatti(){
+
+            if(this.contactSearch != ""){
+
+                this.contattiFiltrati = this.contacts.filter((contatto) => {
+
+                    //se il nome del singolo contatto include ciò che l'utente scrive, allora quel contatto rimarrà nei contatti filtrati. Altrimenti scompare
+                    if(contatto.name.toLowerCase().includes(this.contactSearch)){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                });
+
+                
+            }else{
+                //se l'input è vuota allora i contatti filtrati non filtrano nulla
+                this.contattiFiltrati = this.contacts;
+            }
+            console.log(this.contattiFiltrati);
         }
 
 
+    },
+
+    //all'esecuzione del programma svolgo la funzione, così da stampare i contatti la prima volta
+    beforeMount(){
+        this.filtraContatti();
     }
 });
