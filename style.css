@@ -24,7 +24,7 @@
     width: 80%;
     margin: 10px auto;
     height: calc(100vh - 30px);
-    background-color: darkred;
+    background-color: white;
     display: flex;
     position: absolute;
     bottom: 5px;
@@ -43,6 +43,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: #e7e7e7;
+    border-right: 1px solid lightgray;
 }
 
 .user-info img, .contact img{
@@ -100,12 +101,17 @@ i{
 }
 
 .contact-info{
-    width: 60%;
+    width: 55%;
 }
 
 .contact-info p{
     margin-top: 5px;
     color: grey;
+
+    /* sintassi per "troncare" il testo troppo lungo, sosituendolo con ...*/
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 p.date{
@@ -142,6 +148,10 @@ p.date{
     background-image: url("img/mine.jpg");
     position: relative;
     height: calc(100% - 200px);
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    overflow-y: auto;
 }
 
 
@@ -149,21 +159,21 @@ div.message{
     padding: 10px;
     width: 40%;
     border-radius: 10px;
-    position: absolute;
+    margin-top: 15px;
 }
 
 
 
 div.message.sent{
     background-color: #d0f8b6;
-    margin-top: 20px;
-    right: 50px;
+    margin-left: auto;
+    margin-right: 50px;
 }
 
 div.message.received{
     margin-top: 10px;
+    margin-left: 50px;
     background-color: white;
-    left: 50px;
 }
 
 .messages-container p.date{
