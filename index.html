@@ -52,7 +52,7 @@
                 <div class="contact-list">
 
                     <!--Creazione dinamica dei contatti tramite v-for, che estrapola i dati dall'array "contacts" in vue-->
-                    <div v-for="(contact, index) in contacts" class="contact" :class="contact.active ? 'active': '' ">
+                    <div @click="setActive(index)" v-for="(contact, index) in contacts" class="contact">
                         <img :src="contact.avatar" alt="avatar">
                         <div class="contact-info">
                             <h4>{{contact.name}}</h4>
@@ -81,7 +81,7 @@
 
                 <!--contenitore di tutti i messaggi-->
                 <div class="messages-container">
-                    <div v-for="(message, index) in contacts.messages" class="message" :class="message[index].sent ? 'sent' : 'received' ">
+                    <div v-for="(message, index) in contacts[active].messages" class="message" :class="(message.status=='sent') ? 'sent' : 'received' ">
                         {{message.text}}
                         <p class="date">{{message.date}}</p>
                     </div>
@@ -92,7 +92,7 @@
                 <!--contenitore dell'input per inserire un nuovo messaggio-->
                 <div class="newMessageInput">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input type="text" placeholder="Scrivi un messaggio">
+                    <input type="text" @keyup.enter="addMessage(active)" v-model="newMessage"  placeholder="Scrivi un messaggio">
                     <i class="fa-solid fa-microphone"></i>
                 </div>
             </div>

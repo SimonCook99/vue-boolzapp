@@ -94,10 +94,23 @@ i{
     padding-left: 15px;
 }
 
+.contact-list{
+    overflow-y: auto;
+}
+
 .contact {
     display: flex;
     margin: 15px;
     justify-content: space-between;
+}
+
+.contact:hover{
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+.active{
+    background-color: grey;
 }
 
 .contact-info{

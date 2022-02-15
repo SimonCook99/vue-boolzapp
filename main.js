@@ -1,12 +1,13 @@
 const app = new Vue({
     el: "#root",
     data: {
+        active: 0,
+        newMessage: "",
         contacts: [
             {
                 name: 'Michele',
                 avatar: 'img/avatar_1.jpg',
                 visible: true,
-                active: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -29,7 +30,6 @@ const app = new Vue({
                 name: 'Fabio',
                 avatar: 'img/avatar_2.jpg',
                 visible: true,
-                active: false,
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -52,7 +52,6 @@ const app = new Vue({
                 name: 'Samuele',
                 avatar: 'img/avatar_3.jpg',
                 visible: true,
-                active: false,
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -75,7 +74,57 @@ const app = new Vue({
                 name: 'Luisa',
                 avatar: 'img/avatar_4.jpg',
                 visible: true,
-                active: false,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        text: 'Lo sai che ha aperto una nuova pizzeria?',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        text: 'Si, ma preferirei andare al cinema',
+                        status: 'received'
+                    }
+                ],
+            },
+            {
+                name: 'Luisa',
+                avatar: 'img/avatar_4.jpg',
+                visible: true,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        text: 'Lo sai che ha aperto una nuova pizzeria?',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        text: 'Si, ma preferirei andare al cinema',
+                        status: 'received'
+                    }
+                ],
+            },
+            {
+                name: 'Luisa',
+                avatar: 'img/avatar_4.jpg',
+                visible: true,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        text: 'Lo sai che ha aperto una nuova pizzeria?',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        text: 'Si, ma preferirei andare al cinema',
+                        status: 'received'
+                    }
+                ],
+            },
+            {
+                name: 'Luisa',
+                avatar: 'img/avatar_4.jpg',
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -92,8 +141,48 @@ const app = new Vue({
         ]    
     },
     methods:{
-        setActive(contact){
-            contact.active = true;
+
+        //metodo che segna il contatto attivo, modificando la variabile active con l'indice appropriato
+        setActive(index){
+            this.active = index;
+        },
+
+
+        //funzione che viene chiamata quando mandiamo un nuovo messaggio
+        addMessage(listaMessagiAttiva){
+            if(this.newMessage != ""){
+
+                //aggiungo un nuovo oggetto messaggio, che sarà ciò che ho scritto nell'input
+                this.contacts[listaMessagiAttiva].messages.push({
+                    date: "15/2/2022",
+                    text: this.newMessage,
+                    status: "sent"
+                });
+
+                //svuoto nuovamente l'input
+                this.newMessage = "";
+
+                //chiamo la funzione che mi manderà la risposta dopo 1 secondo
+                setTimeout(this.RispostaInterlocutore, 1000, listaMessagiAttiva);
+
+                
+            }
+        },
+
+        //funzione che genera una risposta random tra quelle nela lista, e pusha l'oggetto nella lista messaggi attiva
+        RispostaInterlocutore(listaMessagiAttiva){
+            let listaRisposte = ["ok", "ciao", "purtroppo non posso", "va bene"];
+
+            let rispostaACaso = Math.floor(Math.random() * (listaRisposte.length));
+            
+            this.contacts[listaMessagiAttiva].messages.push({
+                date:"15/2/2022",
+                text: listaRisposte[rispostaACaso],
+                status: "received"
+            });
+
         }
+
+
     }
 });
