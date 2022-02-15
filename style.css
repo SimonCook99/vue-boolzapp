@@ -148,12 +148,21 @@ p.date{
 }
 
 .contact-details{
-    width: 70%;
+    width: 40%;
+}
+
+i:hover{
+    cursor: pointer;
 }
 
 .contact-details p{
     margin-top: 5px;
     color: grey;
+}
+
+div.icons{
+    width: 50%;
+    text-align: end;
 }
 
 .avatar-info img{
