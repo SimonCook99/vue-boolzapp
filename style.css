@@ -102,6 +102,7 @@ i{
     display: flex;
     margin: 15px;
     justify-content: space-between;
+    padding: 10px;
 }
 
 .contact:hover{
@@ -144,6 +145,15 @@ p.date{
     display: flex;
     align-items: center;
     background-color: #e7e7e7;
+}
+
+.contact-details{
+    width: 70%;
+}
+
+.contact-details p{
+    margin-top: 5px;
+    color: grey;
 }
 
 .avatar-info img{
