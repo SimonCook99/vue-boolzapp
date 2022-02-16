@@ -89,6 +89,50 @@ const app = new Vue({
                     }
                 ],
             },
+            {
+                name: 'Pippo',
+                avatar: 'img/avatar_5.jpg',
+                visible: true,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        text: 'Hai mangiato tutto il piatto?',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        text: 'Si non preoccuparti',
+                        status: 'received'
+                    },
+                    {
+                        date: '10/01/2020 16:15:22',
+                        text: 'Tutto fatto!',
+                        status: 'received'
+                    }
+                ],
+            },
+            {
+                name: 'Luigi',
+                avatar: 'img/avatar_6.jpg',
+                visible: true,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        text: 'Vorrei comprarle quella borsa particolare',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        text: 'Secondo te superiamo il nostro budget?',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 16:15:22',
+                        text: 'Vai tranquillo, ho già controllato :)',
+                        status: 'received'
+                    }
+                ],
+            },
         ]    
     },
     methods:{
@@ -116,7 +160,10 @@ const app = new Vue({
                 //chiamo la funzione che mi manderà la risposta dopo 1 secondo
                 setTimeout(this.RispostaInterlocutore, 1000, listaMessagiAttiva);
 
-                
+                //variabile per scrollare automaticamente la scrollbar giù quando si manda/riceve un messaggio
+                let contenitoreMessagi = this.$el.querySelector(".messages-container");
+                contenitoreMessagi.scrollTop = contenitoreMessagi.scrollHeight;
+
             }
         },
 
@@ -131,6 +178,10 @@ const app = new Vue({
                 text: listaRisposte[rispostaACaso],
                 status: "received"
             });
+
+
+            let contenitoreMessagi = this.$el.querySelector(".messages-container");
+            contenitoreMessagi.scrollTop = contenitoreMessagi.scrollHeight;
 
         },
 
