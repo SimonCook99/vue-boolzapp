@@ -220,7 +220,6 @@ div.message{
     top: 20px;
     right: 5px;
     z-index: 2;
-    display: none;
 }
 
 .message-info p {

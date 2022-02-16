@@ -5,6 +5,10 @@ const app = new Vue({
         newMessage: "",
         contactSearch: "",
         contattiFiltrati: this.contacts,
+        messageActive: {
+            index: false,
+            show: false
+        },
         contacts: [
             {
                 name: 'Michele',
@@ -234,29 +238,40 @@ const app = new Vue({
         },
 
         //funzione per mostrare le opzioni aggiuntive di un messaggio
-        mostraOpzioni(message, index){
+        mostraOpzioni(index){
 
             //variabile booleana "showOptions" aggiunta nell'oggetto messages che rappresenta un flag delle opzioni avanazate del messaggio
-            if(message.showOptions == false){
+            /* if(message.showOptions == false){
                 this.$el.querySelectorAll(".message-info")[index].style = "display:block;";
                 message.showOptions = true;
             }else{
                 this.$el.querySelectorAll(".message-info")[index].style = "display:none;";
                 message.showOptions = false;
+            } */
+
+            if(this.messageActive.index != false && this.messageActive.index != index){
+                this.messageActive.show = false;
+                this.messageActive.index = false;
             }
+
+            this.messageActive.show = (this.messageActive.show) ? false : true;
+            this.messageActive.index = index;
         },
 
 
         //funzione di cancellazione del messaggio selezionato
-        deleteMessage(messagesList, index){
-            if(messagesList.length == 1){
+        deleteMessage(index){
+            /* if(messagesList.length == 1){
                 messagesList.pop();
                 console.log(messagesList);
             }else{
                 messagesList.splice(index, 1);
                 console.log(messagesList);
-            }
-            
+            } */
+
+            this.contacts[this.active].messages.splice(index, 1);
+            this.messageActive.show = false;
+            this.messageActive.index = false;
         }
 
 
