@@ -168,7 +168,8 @@ const app = new Vue({
                 this.contacts[listaMessagiAttiva].messages.push({
                     date: dayjs().format("DD/MM/YY HH:mm"),
                     text: this.newMessage,
-                    status: "sent"
+                    status: "sent",
+                    showOptions: false
                 });
 
                 //svuoto nuovamente l'input
@@ -193,7 +194,8 @@ const app = new Vue({
             this.contacts[listaMessagiAttiva].messages.push({
                 date: dayjs().format("DD/MM/YY HH:mm"),
                 text: listaRisposte[rispostaACaso],
-                status: "received"
+                status: "received",
+                showOptions: false
             });
 
 
@@ -232,22 +234,29 @@ const app = new Vue({
         },
 
         //funzione per mostrare le opzioni aggiuntive di un messaggio
-        mostraOpzioni(index){
+        mostraOpzioni(message, index){
 
             //variabile booleana "showOptions" aggiunta nell'oggetto messages che rappresenta un flag delle opzioni avanazate del messaggio
-            if(this.contacts[index].messages.showOptions == false){
+            if(message.showOptions == false){
                 this.$el.querySelectorAll(".message-info")[index].style = "display:block;";
-                this.contacts[index].messages.showOptions = true;
+                message.showOptions = true;
             }else{
                 this.$el.querySelectorAll(".message-info")[index].style = "display:none;";
-                this.contacts[index].messages.showOptions = false;
+                message.showOptions = false;
             }
         },
 
 
+        //funzione di cancellazione del messaggio selezionato
         deleteMessage(messagesList, index){
-            messagesList.slice(index, 1);
-            console.log(messagesList);
+            if(messagesList.length == 1){
+                messagesList.pop();
+                console.log(messagesList);
+            }else{
+                messagesList.splice(index, 1);
+                console.log(messagesList);
+            }
+            
         }
 
 
