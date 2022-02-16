@@ -105,7 +105,7 @@ const app = new Vue({
 
                 //aggiungo un nuovo oggetto messaggio, che sarà ciò che ho scritto nell'input
                 this.contacts[listaMessagiAttiva].messages.push({
-                    date: "15/2/2022",
+                    date: dayjs().format("DD/MM/YY HH:mm"),
                     text: this.newMessage,
                     status: "sent"
                 });
@@ -122,12 +122,12 @@ const app = new Vue({
 
         //funzione che genera una risposta random tra quelle nela lista, e pusha l'oggetto nella lista messaggi attiva
         RispostaInterlocutore(listaMessagiAttiva){
-            let listaRisposte = ["ok", "ciao", "purtroppo non posso", "va bene"];
+            let listaRisposte = ["ok", "ciao", "purtroppo non posso", "va bene", "xD", "lol"];
 
-            let rispostaACaso = Math.floor(Math.random() * (listaRisposte.length));
+            let rispostaACaso = Math.floor(Math.random() * listaRisposte.length);
             
             this.contacts[listaMessagiAttiva].messages.push({
-                date:"15/2/2022",
+                date: dayjs().format("DD/MM/YY HH:mm"),
                 text: listaRisposte[rispostaACaso],
                 status: "received"
             });
@@ -148,6 +148,13 @@ const app = new Vue({
                         return false;
                     }
                 });
+
+                /* for(let i = 0; i < this.contacts.length; i++){
+                    if(this.contacts[i].name.toLowerCase().includes(this.contactSearch)){
+                        this.contacts[i].visible = false;
+                        this.contactSearch = "";
+                    }
+                } */
 
                 
             }else{
