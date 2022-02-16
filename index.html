@@ -97,7 +97,7 @@
                         <!--contenitore del menù delle opzioni del messaggio, inizialmente invisibile-->
                         <div class="message-info">
                             <p>Message info</p>
-                            <p>Delete message</p>
+                            <p @click="deleteMessage(contacts[active].messages, index)">Delete message</p>
                         </div>
                     </div>
 

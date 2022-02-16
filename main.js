@@ -229,7 +229,6 @@ const app = new Vue({
                 //se l'input è vuota allora i contatti filtrati non filtrano nulla
                 this.contattiFiltrati = this.contacts;
             }
-            console.log(this.contattiFiltrati);
         },
 
         //funzione per mostrare le opzioni aggiuntive di un messaggio
@@ -243,6 +242,12 @@ const app = new Vue({
                 this.$el.querySelectorAll(".message-info")[index].style = "display:none;";
                 this.contacts[index].messages.showOptions = false;
             }
+        },
+
+
+        deleteMessage(messagesList, index){
+            messagesList.slice(index, 1);
+            console.log(messagesList);
         }
 
 
