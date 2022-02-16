@@ -194,7 +194,46 @@ div.message{
     width: 40%;
     border-radius: 10px;
     margin-top: 15px;
+    position: relative;
 }
+
+.message i {
+    font-size: 15px;
+    float: right;
+    position: relative;
+    bottom: 5px;
+    margin: 0;
+    margin-top: 3px;
+    display: none;
+}
+
+.message:hover i{
+    display: block;
+}
+
+
+.message-info{
+    width: 150px;
+    height: 100px;
+    background-color: white;
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    z-index: 2;
+    display: none;
+}
+
+.message-info p {
+    height: 50%;
+    text-align: center;
+    padding: 20px;
+}
+
+.message-info p:hover{
+    cursor: pointer;
+    background-color: lightgray;
+}
+
 
 
 

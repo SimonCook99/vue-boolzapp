@@ -14,17 +14,20 @@ const app = new Vue({
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'Hai portato a spasso il cane?',
-                        status: 'sent'
+                        status: 'sent',
+                        showOptions: false
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         text: 'Ricordati di dargli da mangiare',
-                        status: 'sent'
+                        status: 'sent',
+                        showOptions: false
                     },
                     {
                         date: '10/01/2020 16:15:22',
                         text: 'Tutto fatto!',
-                        status: 'received'
+                        status: 'received',
+                        showOptions: false
                     }
                 ],
             },
@@ -36,17 +39,20 @@ const app = new Vue({
                     {
                         date: '20/03/2020 16:30:00',
                         text: 'Ciao come stai?',
-                        status: 'sent'
+                        status: 'sent',
+                        showOptions: false
                     },
                     {
                         date: '20/03/2020 16:30:55',
                         text: 'Bene grazie! Stasera ci vediamo?',
-                        status: 'received'
+                        status: 'received',
+                        showOptions: false
                     },
                     {
                         date: '20/03/2020 16:35:00',
                         text: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                        status: 'sent'
+                        status: 'sent',
+                        showOptions: false
                     }
                 ],
             },
@@ -58,17 +64,20 @@ const app = new Vue({
                     {
                         date: '28/03/2020 10:10:40',
                         text: 'La Marianna va in campagna',
-                        status: 'received'
+                        status: 'received',
+                        showOptions: false
                     },
                     {
                         date: '28/03/2020 10:20:10',
                         text: 'Sicuro di non aver sbagliato chat?',
-                        status: 'sent'
+                        status: 'sent',
+                        showOptions: false
                     },
                     {
                         date: '28/03/2020 16:15:22',
                         text: 'Ah scusa!',
-                        status: 'received'
+                        status: 'received',
+                        showOptions: false
                     }
                 ],
             },
@@ -80,12 +89,14 @@ const app = new Vue({
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'Lo sai che ha aperto una nuova pizzeria?',
-                        status: 'sent'
+                        status: 'sent',
+                        showOptions: false
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         text: 'Si, ma preferirei andare al cinema',
-                        status: 'received'
+                        status: 'received',
+                        showOptions: false
                     }
                 ],
             },
@@ -97,17 +108,20 @@ const app = new Vue({
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'Hai mangiato tutto il piatto?',
-                        status: 'sent'
+                        status: 'sent',
+                        showOptions: false
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         text: 'Si non preoccuparti',
-                        status: 'received'
+                        status: 'received',
+                        showOptions: false
                     },
                     {
                         date: '10/01/2020 16:15:22',
                         text: 'Tutto fatto!',
-                        status: 'received'
+                        status: 'received',
+                        showOptions: false
                     }
                 ],
             },
@@ -119,17 +133,20 @@ const app = new Vue({
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'Vorrei comprarle quella borsa particolare',
-                        status: 'sent'
+                        status: 'sent',
+                        showOptions: false
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         text: 'Secondo te superiamo il nostro budget?',
-                        status: 'sent'
+                        status: 'sent',
+                        showOptions: false
                     },
                     {
                         date: '10/01/2020 16:15:22',
                         text: 'Vai tranquillo, ho già controllato :)',
-                        status: 'received'
+                        status: 'received',
+                        showOptions: false
                     }
                 ],
             },
@@ -213,6 +230,19 @@ const app = new Vue({
                 this.contattiFiltrati = this.contacts;
             }
             console.log(this.contattiFiltrati);
+        },
+
+        //funzione per mostrare le opzioni aggiuntive di un messaggio
+        mostraOpzioni(index){
+
+            //variabile booleana "showOptions" aggiunta nell'oggetto messages che rappresenta un flag delle opzioni avanazate del messaggio
+            if(this.contacts[index].messages.showOptions == false){
+                this.$el.querySelectorAll(".message-info")[index].style = "display:block;";
+                this.contacts[index].messages.showOptions = true;
+            }else{
+                this.$el.querySelectorAll(".message-info")[index].style = "display:none;";
+                this.contacts[index].messages.showOptions = false;
+            }
         }
 
 

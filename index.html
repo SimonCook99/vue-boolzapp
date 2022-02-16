@@ -90,7 +90,15 @@
                 <div class="messages-container">
                     <div v-for="(message, index) in contacts[active].messages" class="message" :class="(message.status=='sent') ? 'sent' : 'received' ">
                         {{message.text}}
+                        <i @click="mostraOpzioni(index)" class="fa-solid fa-angle-down"></i>
                         <p class="date">{{message.date}}</p>
+
+
+                        <!--contenitore del menù delle opzioni del messaggio, inizialmente invisibile-->
+                        <div class="message-info">
+                            <p>Message info</p>
+                            <p>Delete message</p>
+                        </div>
                     </div>
 
                     
